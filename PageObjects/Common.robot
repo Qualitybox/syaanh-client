@@ -82,3 +82,10 @@ Check my orders
     Wait Until Element Is Visible     ${my_orders}
     Click Element                     ${my_orders}
     Wait Until Element Is Visible     ${titel}
+    
+Change language 
+    [Arguments]    ${Arabic}
+    Click Element        id:for_lang_drop     
+    Click Element      //a[@class="dropdown-item" and @href="https://dev.syaanh.com/ar"] 
+    Wait Until Element Is Visible     //div[2]//a[contains(text(), "صيانة")]    
+    
