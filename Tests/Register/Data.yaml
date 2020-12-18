@@ -1,0 +1,19 @@
+Popup_title :              Syaanh
+Popup_login :              Login
+Btn_Register:              Register
+
+## Register
+
+Msg_Confirmation_register: We sent you a confirmation email
+
+Mobile: 31003358
+Email: test501@gmail.com
+Password: 12345678
+
+Mobile_id: mobile
+Email_id: email
+Password_id: password
+
+FormRegister:
+   Name: Test
+
