@@ -1,6 +1,6 @@
 *** Settings ***
 Resource    ${EXECDIR}/PageObjects/Common.robot
-Variables   Data.py
+Variables   Data.yaml
 
 *** Test Cases ***
 Login
@@ -8,10 +8,10 @@ Login
     Start Application
     Check pop-up          ${Popup_title}
     Close pop-up          ${Popup_title}
-    Click Element         ${Login}
+    Click login
     Fill up form Login    ${Mobile_login}    ${Password_login}
-    Click Button          ${Button_login}   
-    Wait Until Element Is Not Visible   ${Popup_login}
+    Click button type     ${Btn_login}   
+    Check pop-up not visible   ${Popup_login}
     [Teardown]    Teardown tests
     
 Login_incorrect
@@ -19,8 +19,8 @@ Login_incorrect
     Start Application
     Check pop-up          ${Popup_title}
     Close pop-up          ${Popup_title}
-    Click Element         ${Login}
+    Click login
     Fill up form Login    ${Mobile_login_invalid}    ${Password_login_invalid}
-    Click Button          ${Button_login}   
-    Wait Until Element Is Visible   ${msg_login_invalid}
+    Click button type     ${Btn_login}   
+    Check error message   ${msg_login_invalid}
     [Teardown]    Teardown tests
