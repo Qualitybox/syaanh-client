@@ -146,3 +146,23 @@ Change language
     Click Element        id:for_lang_drop     
     Click Element      //a[@class="dropdown-item" and @href="https://dev.syaanh.com/ar"] 
     Wait Until Element Is Visible     //div[2]//a[contains(text(), "صيانة")]    
+
+Check categories
+    
+    Click Element    //a[@id="navbarDropdownMenuLink1"]
+    Wait Until Element Is Visible    //div[@class="categories-dropdown_block show"]/div   
+    
+See more
+    [Arguments]     ${ShopCat}
+    Click Element    //a[@class="see-more_link"]
+    #Wait Until Element Is Visible     //h1[@class="shop-categories__title shop__title mobile-none"]
+    Element Should Be Visible    //div//h1[contains(text(), "${ShopCat}")]   
+    Get Location
+    
+About page
+    [Arguments]    ${About}
+    Scroll Element Into View        //div[@class="reserved"]/span
+    Click Element      //div[@class="syaanh-links"]/div/a[5]
+    Get Location            
+    #Element Should Be Visible    //div//div[contains(text(), 'About Syaanh')]    
+    Wait Until Element Is Visible    //div[@class="about-header"]    
