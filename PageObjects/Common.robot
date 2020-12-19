@@ -115,3 +115,34 @@ Close confirmation pop-up register
     ${pop-up} =    Set Variable   //div[@class="modal-content"]//div[contains(text()," ${msg}")]
     ${okButton} =    Set Variable   //div//button//span[contains(text(),"Ok")]
     Wait Until Element Is Visible    ${pop-up}    timeout=10
+    
+Check notifications
+   [Arguments]    ${Notifications}
+    Click Element    //div[@class="user-nots-icon notification_no"]    
+    Wait Until Element Is Visible    //div[@class='show']/div    
+User profile
+    [Arguments]    ${profile}  
+    Click Element    //a[@id='user_options']
+    Wait Until Element Is Visible    //div[@class="nav-link-user-div show"]/div    
+    #Element Should Be Visible         //div//a[contains(text(), 'My profile')]  
+    
+My profil
+    Click Element        //a[@id='user_options']
+    Click element           //div[@class="nav-link-user-div show"]/div/a
+    Element Should Be Visible    //img[@id="user-img"]    
+
+Provider register
+    Click Element        //a[@id='user_options']    
+    Click Element        //div[@class="nav-link-user-div show"]/div/a[2]    
+    Wait Until Element Is Visible     //div[@class="provider-continue-butt"]    
+    
+Log Out 
+    Click Element      //a[@id='user_options']     
+    Click Element      //div[@class="nav-link-user-div show"]/div/a[3]
+    Wait Until Element Is Visible     //span[@class="nav-link-login"]        
+    
+Change language 
+    [Arguments]    ${Arabic}
+    Click Element        id:for_lang_drop     
+    Click Element      //a[@class="dropdown-item" and @href="https://dev.syaanh.com/ar"] 
+    Wait Until Element Is Visible     //div[2]//a[contains(text(), "صيانة")]    

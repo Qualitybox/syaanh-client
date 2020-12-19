@@ -1,0 +1,7 @@
+Popup_title =              'Syaanh'
+Login =                    '//div[@id="nav_lang_link"]//..//span[contains(text(), "Login")]'
+Popup_login =              '//div[contains(text(), "Login")]'
+Mobile_login =             '31003167'
+Password_login =           '12345678'
+Button_login =             '//div//button//span[contains(text(),"Login")]/..'
+notifications=              'notifications' 
