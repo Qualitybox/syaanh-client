@@ -5,7 +5,7 @@ Variables   Data.yaml
 
 *** Test Cases ***
 Create Order
-    [Tags]    UI
+    [Tags]    UI    skipped
     Start Application
     Check pop-up          ${Popup_title}
     Close pop-up          ${Popup_title}

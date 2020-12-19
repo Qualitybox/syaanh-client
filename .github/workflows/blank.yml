@@ -46,7 +46,7 @@ jobs:
 
       - name: Run tests
         run: |
-          robot -x results -T -d Reports/ -i UI -v Browser:headlesschrome .
+          robot -x results -T -d Reports/ -i UI -n skipped -v Browser:headlesschrome .
 
       - name: Archive test results
         if: ${{ always() }}

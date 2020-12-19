@@ -6,7 +6,7 @@ Test Teardown    Close All Browsers
 
 *** Test Cases ***
 Log Out
-        [Tags]    UI    sy
+        [Tags]    UI    sy    skipped
     Open Syaanh Website
     Delete Pop-Up
     Login    
