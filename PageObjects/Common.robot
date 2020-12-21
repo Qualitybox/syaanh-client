@@ -115,3 +115,9 @@ Close confirmation pop-up register
     ${pop-up} =    Set Variable   //div[@class="modal-content"]//div[contains(text()," ${msg}")]
     ${okButton} =    Set Variable   //div//button//span[contains(text(),"Ok")]
     Wait Until Element Is Visible    ${pop-up}    timeout=10
+    
+Open notification
+    ${notification_icone} =    Set Variable        //a[@id="notifications"]
+    Wait Until Element Is Visible      ${notification_icone}
+    Click Element                      ${notification_icone}
+    Wait Until Element Is Visible      //div[@class="dropdown-menu dropdown-notification show"]
