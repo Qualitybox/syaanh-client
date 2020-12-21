@@ -121,3 +121,12 @@ Open notification
     Wait Until Element Is Visible      ${notification_icone}
     Click Element                      ${notification_icone}
     Wait Until Element Is Visible      //div[@class="dropdown-menu dropdown-notification show"]
+    
+Change language
+    [Arguments]    ${language}
+    Wait Until Element Is Visible    //a[@id="for_lang_drop"]
+    Click Element                    //a[@id="for_lang_drop"]
+    Wait Until Element Is Visible    //div[@id="nav_lang_link"]
+    Click Element                    //div[@id="nav_lang_link"]//a[contains(text(),"${language}")]
+    Wait Until Element Is Visible    //a[@id="for_lang_drop"][contains(text(),"${language}")]
+        
