@@ -50,7 +50,7 @@ Select an area
      [Arguments]    ${area}
      Wait Until Element Is Visible    //span[@id="area_value"]
      Click Element                    //span[@id="area_value"]
-     Wait Until Element Is Visible    //div[@class="choose-area-header"]//span[contains(text(),"Select an area")]
+     Wait Until Element Is Visible    //div[@class="choose-area-header"]//span[contains(text(),"Select an area")]    timeout= 10
      Click Element                    //label[contains(text(),"${area}")]
      Click Element                     //div[@class="create-area-continue"]//span
      Wait Until Element Is Not Visible     //div[@class="choose-area-header"]//span[contains(text(),"Select an area")]
