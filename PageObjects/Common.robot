@@ -85,7 +85,7 @@ Click button type
     
     
 Click login
-    ${login} =    Set Variable       //div[@id="nav_lang_link"]/../span[contains(text(),"Login")]
+    ${login} =    Set Variable       //div/../span[contains(text(),"Login")]
     Wait Until Element Is Visible    ${login}
     Click Element                    ${login}
     
@@ -129,4 +129,10 @@ Change language
     Wait Until Element Is Visible    //div[@id="nav_lang_link"]
     Click Element                    //div[@id="nav_lang_link"]//a[contains(text(),"${language}")]
     Wait Until Element Is Visible    //a[@id="for_lang_drop"][contains(text(),"${language}")]
+    
+Go to my cart
+    ${link} =    Set Variable       //a[@class="basket-link"]
+    Wait Until Element Is Visible    ${link}
+    Click Element   	             ${link}
+    #Wait Until Element Is Visible    //div[@class="main-container-two"]//h1[contains(text(),"Cart")]    timeout= 10
         
