@@ -153,3 +153,15 @@ Purchase from Shop menu
     Wait Until Element Is Visible       //h4[contains(text(),"${product_name}")]
     Clic Add to cart
     Wait Until Element Is Visible       //div[@class="item-basket"]//p[contains(text(),"Added to basket")]
+    
+Purchase from Shop groups
+    [Arguments]     ${groups}    ${product}
+    ${category_groups} =     Set Variable     //div//h3[contains(text(),"${groups}")]  
+    ${product_groups} =      Set Variable     //h6[contains(text(),"${product}")]
+    Scroll Element Into View         ${category_groups}
+    Scroll Element Into View         ${product_groups}
+    Wait Until Element Is Visible    ${product_groups}
+    Click Element                    ${product_groups}
+    Wait Until Element Is Visible       //h1[contains(text(),"Product details ")]
+    Clic Add to cart
+    Wait Until Element Is Visible       //div[@class="item-basket"]//p[contains(text(),"Added to basket")]
