@@ -114,7 +114,7 @@ Close confirmation pop-up register
     [Arguments]    ${msg}
     ${pop-up} =    Set Variable   //div[@class="modal-content"]//div[contains(text()," ${msg}")]
     ${okButton} =    Set Variable   //div//button//span[contains(text(),"Ok")]
-    Wait Until Element Is Visible    ${pop-up}    timeout=10
+    Wait Until Element Is Visible    ${pop-up}    timeout=20
     
 Open notification
     ${notification_icone} =    Set Variable        //a[@id="notifications"]
