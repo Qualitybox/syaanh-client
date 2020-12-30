@@ -85,8 +85,9 @@ Click button type
     
     
 Click login
-    ${login} =    Set Variable       //div[@id="nav_lang_link"]/../span[contains(text(),"Login")]
-    Wait Until Element Is Visible    ${login}
+    ${login} =    Set Variable       //span[@class="nav-link-login"]
+    #//div[@id="nav_lang_link"]/../span[contains(text(),"Login")]
+    Wait Until Element Is Visible    ${login}    20s
     Click Element                    ${login}
     
 Fill up input form
@@ -147,11 +148,17 @@ Change language
     Click Element      //a[@class="dropdown-item" and @href="https://dev.syaanh.com/ar"] 
     Wait Until Element Is Visible     //div[2]//a[contains(text(), "صيانة")]    
 
-Check categories
+Check cart
+   # [Arguments]    ${SyCart}
+    Click Element    //*[@class="basket-items_count"]
+    Wait Until Element Is Visible    //*[@class="main-container-two"]/h1       5s
+    Wait Until Element Is Visible    //*[@class="main-container"]        5s
+    Click Element    //*[@class="cart-buttons_block"]/a 
+    Wait Until Element Is Visible    //*[@class="order-block"]    
+    Element Should Be Visible    //*[contains(text(), "Address type")]    
+    Element Should Be Visible    //*[@class="ordered-items_table"]    
     
-    Click Element    //a[@id="navbarDropdownMenuLink1"]
-    Wait Until Element Is Visible    //div[@class="categories-dropdown_block show"]/div   
-    
+      
 See more
     [Arguments]     ${ShopCat}
     Click Element    //a[@class="see-more_link"]
@@ -166,3 +173,66 @@ About page
     Get Location            
     #Element Should Be Visible    //div//div[contains(text(), 'About Syaanh')]    
     Wait Until Element Is Visible    //div[@class="about-header"]    
+    
+Contact Us 
+    [Arguments]    ${ContactUs}
+    Scroll Element Into View    //div[@class="reserved"]/span
+    Click Element        //div[@class="syaanh-links"]/div/a[3]
+    Get Location
+    Wait Until Element Is Visible        //*[@class="size_change"]
+    
+OurPrices 
+    [Arguments]    ${vu}
+    Scroll Element Into View    //div[@class="reserved"]/span
+    Click Element    //div[@class="syaanh-links"]/div/a[6]
+    Wait Until Element Is Visible        //div[@class="col-prices-1"]
+    Get Title   
+    
+Shop Group
+    [Arguments]        ${HomeApp}
+    #//*[contains(@class,"shop-categories_row")]//*[contains(@href,"appliances")]
+    Click Element        //h6[contains(text(), 'Home Appliances')]
+    Element Should Be Visible    //span[contains(text(), "Small Appliances")]    
+    Wait Until Element Is Visible    //div[@class="shop-filters_content"]        
+    Scroll Element Into View         //ul//li[1][@class="active"]
+    Click Element    //a[@class="page-link next"]    
+    
+Cancel Deleting Product from cart screen 
+    Click Element    //*[@class="basket-items_count"]
+    Wait Until Element Is Visible    //*[@class="main-container-two"]/h1       5s
+    Click Element    //*[@data-cookieid="3"]/img    
+    Wait Until Element Is Visible    //*[@id="remove_from_card"]//div[@class="modal-content login-modal-content"]    
+    Click Element    //*[@class="remove_from_card_close"]/span  
+    
+    
+Verify plus and minus button
+    Click Element    //*[@class="basket-items_count"]
+    Wait Until Element Is Visible    //*[@class="main-container-two"]/h1       4s
+    ${var1} =  Get Text    //*[@class="product-price product-price-total_1"]
+    Double Click Element    //*[@data-plus-id="1"]    
+    Reload Page
+    ${var2} =  Get Text    //*[@class="product-price product-price-total_1"]
+    Should Not Be Equal     ${var1}     ${var2}    
+    Double Click Element    //*[@data-minus-id="1"]
+    Reload Page
+    ${var3} =  Get Text    //*[@class="product-price product-price-total_1"]
+    Should Not Be Equal     ${var2}     ${var3}    
+#Verify minus button
+ #   Click Element    //*[@class="basket-items_count"]
+  #  Wait Until Element Is Visible    //*[@class="main-container-two"]/h1       4s
+   # ${var1} =  Get Text    //*[@class="product-price product-price-total_1"]
+    #Double Click Element    //*[@data-minus-id="1"]    
+    #Reload Page
+    #${var2} =  Get Text    //*[@class="product-price product-price-total_1"]
+    #Should Not Be Equal     ${var1}     ${var2}    
+    
+Check My Order 
+    Click Element    //*[@class="orderPosition"]
+    Element Should Be Visible    //*[contains(text(), "My orders ")]
+    Element Should Be Visible    //*[contains(text(), "Completed")]
+    ${var0}=    Get Text    //*[contains(@href, "completed")]
+    [Return]    ${var0}
+    Element Should Be Visible    //*[contains(@href, "shop")]   
+    #Element Should Contain
+        #//*[contains(text(),"Active")]
+    

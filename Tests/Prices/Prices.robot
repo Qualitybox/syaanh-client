@@ -5,10 +5,11 @@ Variables   Data.py
 Test Teardown    Close All Browsers
 
 *** Test Cases ***
-Log Out
-        [Tags]    UI    sy
+See more
+    [Tags]    UI    sy
+    
     Open Syaanh Website
     Delete Pop-Up
     Login    
-    Check categories
-
+    OurPrices    ${Prices}
+ 

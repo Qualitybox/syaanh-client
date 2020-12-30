@@ -66,7 +66,6 @@ Check informations order
 Order informations
     [Arguments]    ${value}
     Wait Until Element Is Visible    //div//span[contains(text(),"${value}")]
-
     
 Check pop-up success create order
     ${pop-up} =    Set Variable       //div//span[contains(text(),"was created")]

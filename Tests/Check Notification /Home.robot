@@ -13,9 +13,9 @@ Delete Pop-Up
     Check pop-up          ${Popup_title}
     Close pop-up          ${Popup_title}
     
-Login        
+Login 
     Click Element         ${Login}
     Fill up form Login    ${Mobile_login}    ${Password_login}
     Click Button          ${Button_login}   
-    Wait Until Element Is Not Visible   ${Popup_login}    6s
+    Wait Until Element Is Not Visible   ${Popup_login}
    
