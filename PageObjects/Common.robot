@@ -217,15 +217,8 @@ Verify plus and minus button
     Reload Page
     ${var3} =  Get Text    //*[@class="product-price product-price-total_1"]
     Should Not Be Equal     ${var2}     ${var3}    
-#Verify minus button
- #   Click Element    //*[@class="basket-items_count"]
-  #  Wait Until Element Is Visible    //*[@class="main-container-two"]/h1       4s
-   # ${var1} =  Get Text    //*[@class="product-price product-price-total_1"]
-    #Double Click Element    //*[@data-minus-id="1"]    
-    #Reload Page
-    #${var2} =  Get Text    //*[@class="product-price product-price-total_1"]
-    #Should Not Be Equal     ${var1}     ${var2}    
-    
+    #Should Be Equal    ${var1}    ${var3}    
+
 Check My Order 
     Click Element    //*[@class="orderPosition"]
     Element Should Be Visible    //*[contains(text(), "My orders ")]
@@ -236,3 +229,31 @@ Check My Order
     #Element Should Contain
         #//*[contains(text(),"Active")]
     
+Active Orders
+    Click Element    //*[@class="orderPosition"]    
+    Element Should Be Visible    //*[contains(text(), "Open")]    
+    
+Completed orders 
+    Click Element    //*[@class="orderPosition"]    
+    Click Element     //*[@class="my-orders-info"]/div/ul/li[2]/a    
+    Element Should Be Visible    //span[contains(text(), 'Completed')]    
+
+Shop Orders
+    Click Element    //*[@class="orderPosition"]    
+    Click Element    //*[@class="my-orders-info"]/div/ul/li[3]/a
+    Wait Until Element Is Visible    //*[@class="ordersArContentWithImg"]            
+    
+Cancel Order
+    Click Element    //*[@class="orderPosition"]    
+    Click Element    //*[@class="cancel-service-button"]    
+    Wait Until Element Is Visible    //*[@id="not_completed_order"]//div[2]/div     
+    Click Element    //*[@class="col-reasons"]//div[3]    
+    Click Element    //*[@id="serviceCancelConfirm"]    
+    Wait Until Element Is Not Visible    //*[@id="not_completed_order"]//div[2]/div     
+Report Order 
+    [Arguments]    ${text}
+    Click Element    //*[@class="orderPosition"]    
+    Click Element    //*[@class="report-service-button"]
+    Wait Until Element Is Visible    //*[@class="rate-service-header"]    
+    Input Text    //*[@id="reportTextbox"]    ${text}
+    Click Element    //*[@class="row"]/a                

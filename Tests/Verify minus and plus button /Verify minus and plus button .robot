@@ -10,6 +10,6 @@ verify minus and plus button
     Open Syaanh Website
     Delete Pop-Up
     Login    
-    Verify plus button
+    Verify plus and minus button
     
     

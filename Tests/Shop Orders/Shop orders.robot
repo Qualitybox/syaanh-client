@@ -5,9 +5,10 @@ Variables   Data.py
 Test Teardown    Close All Browsers
 
 *** Test Cases ***
-About Page
+Shop Orders
     [Tags]    UI    sy
+    
     Open Syaanh Website
     Delete Pop-Up
     Login    
-    About page    ${About}
+    Shop Orders

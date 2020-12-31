@@ -5,9 +5,9 @@ Variables   Data.py
 Test Teardown    Close All Browsers
 
 *** Test Cases ***
-About Page
+Report Order
     [Tags]    UI    sy
     Open Syaanh Website
     Delete Pop-Up
     Login    
-    About page    ${About}
+    Report Order    ${Text1}
