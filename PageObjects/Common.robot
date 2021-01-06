@@ -77,15 +77,13 @@ Check my orders
     Wait Until Element Is Visible     ${my_orders}
     Click Element                     ${my_orders}
     Wait Until Element Is Visible     ${titel}
-    
-<<<<<<< HEAD
+
 Change language 
     [Arguments]    ${Arabic}
     Click Element        id:for_lang_drop     
     Click Element      //a[@class="dropdown-item" and @href="https://dev.syaanh.com/ar"] 
     Wait Until Element Is Visible     //div[2]//a[contains(text(), "صيانة")]    
-    
-=======
+
 Click button type
     [Arguments]    ${button_name}
     Wait Until Element Is Visible    //div//button//span[contains(text(),"${button_name}")]/..
@@ -123,4 +121,3 @@ Close confirmation pop-up register
     ${pop-up} =    Set Variable   //div[@class="modal-content"]//div[contains(text()," ${msg}")]
     ${okButton} =    Set Variable   //div//button//span[contains(text(),"Ok")]
     Wait Until Element Is Visible    ${pop-up}    timeout=10
->>>>>>> 8fb15cf64a45e1121624dac4a0bea4c4d9b668f2
