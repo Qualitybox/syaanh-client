@@ -1,8 +1,8 @@
 *.xml
 .project
 .pydevproject
-libspecs/
-Reports/
+libspecs/*
+Reports/*
 __pycache__
 *.html
 *.jpg
