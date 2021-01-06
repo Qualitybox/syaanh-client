@@ -165,3 +165,4 @@ Purchase from Shop groups
     Wait Until Element Is Visible       //h1[contains(text(),"Product details ")]
     Clic Add to cart
     Wait Until Element Is Visible       //div[@class="item-basket"]//p[contains(text(),"Added to basket")]
+

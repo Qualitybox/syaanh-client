@@ -1,8 +1,5 @@
 *** Settings ***
-Library                      SeleniumLibrary
-Library                      Collections
-Library                      OperatingSystem
-Variables                    ${EXECDIR}/GlobalProperties.py
+Resource    Common.robot
 
 *** Keywords ***
 
