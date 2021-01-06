@@ -1,7 +1,5 @@
 *** Settings ***
-Library                      OperatingSystem
-Variables                    ${EXECDIR}/GlobalProperties.py
-Resource        ${EXECDIR}/PageObjects/Common.robot
+Resource                     ${EXECDIR}/PageObjects/Common.robot
 Variables                    Webelements/home.py
 *** Keywords ***
 

@@ -1,12 +1,12 @@
 *** Settings ***
 Resource    ${EXECDIR}/PageObjects/Home.robot
 Variables    Data.py
-Test Teardown    Close All Browsers
+Test Teardown    Teardown tests
 
 *** Test Cases ***
-Language
-    [Tags]    UI    sy
+Check notification
+    [Tags]    UI
     Open Syaanh Website
     Delete Pop-Up
     Login
-    Change language    ${Arabic}
+    Check my orders

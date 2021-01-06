@@ -1,7 +1,8 @@
 *** Settings ***
-Resource    ${EXECDIR}/PageObjects/Common.robot
 Resource    ${EXECDIR}/PageObjects/Order.robot
 Variables   Data.yaml
+Test Teardown    Teardown tests
+
 
 *** Test Cases ***
 Create Order
@@ -31,4 +32,3 @@ Create Order
     Check informations order  ${OrderInformations}
     Click button confirm and send
     Check pop-up success create order
-    [Teardown]    Teardown tests
