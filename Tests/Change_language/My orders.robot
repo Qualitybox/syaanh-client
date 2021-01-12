@@ -1,5 +1,4 @@
 *** Settings ***
-Resource    ${EXECDIR}/PageObjects/Common.robot
 Resource    ${EXECDIR}/PageObjects/Order.robot
 Variables   Data.yaml
 
