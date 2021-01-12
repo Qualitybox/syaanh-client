@@ -6,8 +6,7 @@ Variables   Data.yaml
 Register
     [Tags]    UI
     Start Application
-    Check pop-up          ${Popup_title}
-    Close pop-up          ${Popup_title}
+    Hendle Recommanded product popup
     Click login
     Click register link
     Fill up input form    ${FormRegister}
