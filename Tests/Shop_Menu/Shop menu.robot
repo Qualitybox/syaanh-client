@@ -12,4 +12,3 @@ Shop menu
     Click button type     ${Btn_login}   
     Check pop-up not visible   ${Popup_login}
     Purchase from Shop menu    ${Category}    ${Product}
-    [Teardown]    Teardown tests

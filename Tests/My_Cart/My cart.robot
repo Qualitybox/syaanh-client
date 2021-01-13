@@ -12,4 +12,3 @@ My cart
     Click button type     ${Btn_login}   
     Check pop-up not visible   ${Popup_login}
     Go to my cart
-    [Teardown]    Teardown tests
