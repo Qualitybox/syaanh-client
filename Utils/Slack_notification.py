@@ -1,6 +1,6 @@
 import requests
 
-CI_Slack_webhook = 'https://hooks.slack.com/services/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'
+CI_Slack_webhook = 'https://hooks.slack.com/services/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'
 
 
 

@@ -53,6 +53,7 @@ jobs:
           echo $GITHUB_RUN_ID
           robot -x xUnit -d Reports/ -i UI -v Browser:headlesschrome --norpa . || refError=$?
           robot -v Build_nbr:$GITHUB_RUN_ID -v JOB_STATUS:$refError -d Reports/Notifs -v SCOPE:$SCOPE --rpa notifications.robot
+          exit $refError
 
       - name: Archive test results
         if: ${{ always() }}
