@@ -1,25 +1,21 @@
 import requests
 
-CI_Slack_webhook = 'https://hooks.slack.com/services/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'
+CI_Slack_webhook = 'https://hooks.slack.com/services/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'
 
 
 
-def publish_results_to_slack(global_result='1', message='default', gitlab_job='73853', browser='chrome', scope='ci'):
+def publish_results_to_slack(global_result='1', message='default', jobID='481857404', browser='chrome', scope='ci'):
     # get only last line of gloabal suite message
     # messageLine = message.split('\n')
     # message = messageLine[len(messageLine) - 1]
     print(message)
     print(global_result)
 
-    if browser == 'KPI':
-        test_nature = '*KPI engine* related tests'
-        project = "data"
-    else:
-        test_nature = 'Tests on *' + browser + '*'
-        project = "core"
+
+    test_nature = 'Tests on *' + browser + '*'
 
     url = CI_Slack_webhook
-    artifacts_path = 'https://gitlab.insideboard.com/qa/qa-' + project + '/-/jobs/' + gitlab_job + '/artifacts/download'
+    #artifacts_path = 'https://gitlab.insideboard.com/qa/qa-' + project + '/-/jobs/' + jobID + '/artifacts/download'
 
     if str(global_result) == '0':
         feedback = ':heavy_check_mark: ' + test_nature + ' are passed !! :tada: :tada:'
@@ -48,15 +44,9 @@ def publish_results_to_slack(global_result='1', message='default', gitlab_job='7
                             "actions": [
                                 {
                                     "name": "Artifacts",
-                                    "text": "Gitlab build",
+                                    "text": "Github build",
                                     "type": "button",
-                                    "url": 'https://gitlab.insideboard.com/qa/qa-' + project + '/-/jobs/' + gitlab_job
-                                },
-                                {
-                                    "name": "Artifacts",
-                                    "text": "Download artifacts",
-                                    "type": "button",
-                                    "url": artifacts_path
+                                    "url": 'https://github.com/Qualitybox/syaanh-client/actions/runs/' + jobID
                                 }
                             ]
                         }
@@ -68,4 +58,4 @@ def publish_results_to_slack(global_result='1', message='default', gitlab_job='7
     print(response.content)
     return response.status_code
 
-# publish_results_to_slack(scope='Data')
+#publish_results_to_slack()
