@@ -1,7 +1,6 @@
 import requests
 
-CI_Slack_webhook = 'https://hooks.slack.com/services/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'
-
+CI_Slack_webhook = 'https://hooks.slack.com/services/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'
 
 
 def publish_results_to_slack(global_result='1', message='default', jobID='481857404', browser='chrome', scope='ci'):
@@ -58,4 +57,4 @@ def publish_results_to_slack(global_result='1', message='default', jobID='481857
     print(response.content)
     return response.status_code
 
-#publish_results_to_slack()
+publish_results_to_slack()
