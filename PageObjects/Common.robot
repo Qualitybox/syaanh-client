@@ -17,11 +17,11 @@ Teardown tests
 
 Check pop-up
     [Arguments]    ${title}
-    Element Should Be Visible    //div//h3[contains(text(), "${title}")]    
+    Element Should Be Visible    //div[@class="modal-header"]//h3[contains(text(), "${title}")]    
 
 Check pop-up not visible
     [Arguments]    ${title}
-    Wait Until Element Is Not Visible    //div[contains(text(), "${title}")]   
+    Wait Until Element Is Not Visible    //div[@class="modal-header"]//h3[contains(text(), "${title}")] 
 
 Check error message
     [Arguments]    ${msg}
@@ -29,9 +29,9 @@ Check error message
 
 Close pop-up
     [Arguments]    ${title}
-    Element Should Be Visible    //div//h3[contains(text(), "${title}")]  
-    Click Element                //div//h3[contains(text(), "${title}")]//..//button
-    Wait Until Element Is Not Visible   //div//h3[contains(text(), "${title}")]  
+    Element Should Be Visible    //div[@class="modal-header"]//h3[contains(text(), "${title}")]  
+    Click Element                //div[@class="modal-header"]//h3[contains(text(), "${title}")]//..//button
+    Wait Until Element Is Not Visible   //div[@class="modal-header"]//h3[contains(text(), "${title}")]  
     
 Fill up form Login
     [Arguments]    ${mobile}    ${password}
@@ -41,6 +41,7 @@ Fill up form Login
     
 Click service
     [Arguments]    ${service}
+    Wait Until Element Is Visible    //div[contains(text(),"Select a service")]
     Scroll Element Into View   	     //div[contains(text(),"Select a service")]
     Wait Until Element Is Visible    //span[contains(text(),"${service}")]
     Click Element                    //span[contains(text(),"${service}")]
@@ -114,7 +115,7 @@ Close confirmation pop-up register
     [Arguments]    ${msg}
     ${pop-up} =    Set Variable   //div[@class="modal-content"]//div[contains(text()," ${msg}")]
     ${okButton} =    Set Variable   //div//button//span[contains(text(),"Ok")]
-    Wait Until Element Is Visible    ${pop-up}    timeout=20
+    Wait Until Element Is Visible    ${pop-up}    timeout=40
     
 Open notification
     ${notification_icone} =    Set Variable        //a[@id="notifications"]
@@ -124,8 +125,9 @@ Open notification
     
 Change language
     [Arguments]    ${language}
-    Wait Until Element Is Visible    //a[@id="for_lang_drop"]
-    Click Element                    //a[@id="for_lang_drop"]
+    Wait Until Element Is Visible    //*[@id="navbar_language_dropdown"]    timeout=40
+    #Click Element                    //a[@id="for_lang_drop"][@role="button"]
+    Click Element                    //*[@id="navbar_language_dropdown"]
     Wait Until Element Is Visible    //div[@id="nav_lang_link"]
     Click Element                    //div[@id="nav_lang_link"]//a[contains(text(),"${language}")]
     Wait Until Element Is Visible    //a[@id="for_lang_drop"][contains(text(),"${language}")]
@@ -142,9 +144,10 @@ Clic Add to cart
 
 Purchase from Shop menu
     [Arguments]    ${shop_category}    ${product_name}
-    ${category} =    Set Variable       //h6[contains(text(),"${shop_category}")]
-    ${product} =     Set Variable       //h5[contains(text(),"${product_name}")]
+    ${category} =    Set Variable       //*[@id="main_content"]//div[@class="shop-categories_inner"]//h6[contains(text(),"${shop_category}")]/..
+    ${product} =     Set Variable       //div//h5[contains(text(),"${product_name}")]
     Wait Until Element Is Visible       //h3[contains(text(),"Shop categories")]
+    Wait Until Element Is Visible       ${category}
     Click Element   	                ${category}
     Wait Until Element Is Visible       //div[@class="main-container-two"]//h1[contains(text(),"${shop_category}")]
     Scroll Element Into View            ${product}
@@ -157,9 +160,10 @@ Purchase from Shop menu
 Purchase from Shop groups
     [Arguments]     ${groups}    ${product}
     ${category_groups} =     Set Variable     //div//h3[contains(text(),"${groups}")]  
-    ${product_groups} =      Set Variable     //h6[contains(text(),"${product}")]
-    Scroll Element Into View         ${category_groups}
-    Scroll Element Into View         ${product_groups}
+    ${product_groups} =      Set Variable     //div//h6[contains(text(),"${product}")]
+    #Scroll Element Into View         //*[@id="main_content"]/div[3]/div[5]/div/div/h3
+    #Scroll Element Into View         ${product_groups}
+    Etap_Scroll dans la page
     Wait Until Element Is Visible    ${product_groups}
     Click Element                    ${product_groups}
     Wait Until Element Is Visible       //h1[contains(text(),"Product details ")]
@@ -167,8 +171,24 @@ Purchase from Shop groups
     Wait Until Element Is Visible       //div[@class="item-basket"]//p[contains(text(),"Added to basket")]
     
 Clic See More categories
-    ${see more} =    Set Variable    //h3[contains(text(),"Shop categories")]/..//a[contains(text(),"see more")]
-    Wait Until Element Is Visible    ${see more}
-    Click Element                    ${see more}
-    Wait Until Element Is Visible    //div[@class="main-container-two"]//h1[contains(text(),"Shop Categories")]/..//li[contains(text(),"Shop Categories")]
-    
+    ${see more} =    Set Variable    //div//h3[contains(text(),"Shop categories")]/..//a[contains(text(),"see more")]
+    Wait Until Element Is Visible    ${see more}           timeout= 30 
+    Click Element                    //*[@id="main_content"]/div[1]/div[1]/a
+    Wait Until Element Is Visible    //div[@class="main-container-two"]//h1[contains(text(),"Recently Added Categories ")]    timeout=30
+   
+Etap_Scroll dans la page
+    Press Keys                               None                                        PAGE DOWN
+    Press Keys                               None                                        PAGE DOWN
+    Press Keys                               None                                        PAGE DOWN
+    Press Keys                               None                                        DOWN
+    Press Keys                               None                                        DOWN
+    Press Keys                               None                                        DOWN
+    Press Keys                               None                                        DOWN
+    Press Keys                               None                                        DOWN
+    Press Keys                               None                                        DOWN
+    Press Keys                               None                                        DOWN
+    Press Keys                               None                                        DOWN
+    Press Keys                               None                                        DOWN
+    Press Keys                               None                                        DOWN
+    Press Keys                               None                                        DOWN
+    Press Keys                               None                                        DOWN 

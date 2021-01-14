@@ -4,7 +4,7 @@ Variables   Data.yaml
 
 *** Test Cases ***
 See more
-    [Tags]    UI    sya
+    [Tags]    UI
     Start Application
     Check pop-up          ${Popup_title}
     Close pop-up          ${Popup_title}
