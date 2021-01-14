@@ -12,4 +12,3 @@ Open notification
     Click button type     ${Btn_login}   
     Check pop-up not visible   ${Popup_login}
     Open notification
-    [Teardown]    Teardown tests

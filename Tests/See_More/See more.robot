@@ -12,4 +12,3 @@ See more
     Click button type     ${Btn_login}   
     Check pop-up not visible   ${Popup_login}
     Clic See More categories
-    [Teardown]    Teardown tests

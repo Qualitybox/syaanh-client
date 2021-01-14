@@ -2,7 +2,7 @@ Instance = 'dev.'
 Language = 'en.'
 Environment = 'syaanh.com'
 Browser = 'chrome'
-DELAY = '0.3 seconds'
+DELAY = '0.1 seconds'
 
 
 # # Not exposed to CI

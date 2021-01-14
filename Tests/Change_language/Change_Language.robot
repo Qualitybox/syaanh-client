@@ -12,4 +12,3 @@ Change language
     Click button type     ${Btn_login}   
     Check pop-up not visible   ${Popup_login}
     Change language            ${Arabic}
-    [Teardown]    Teardown tests
