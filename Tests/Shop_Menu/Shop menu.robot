@@ -1,5 +1,4 @@
 *** Settings ***
-Resource    ${EXECDIR}/PageObjects/Common.robot
 Resource    ${EXECDIR}/PageObjects/Order.robot
 Variables   Data.yaml
 
@@ -7,8 +6,7 @@ Variables   Data.yaml
 Shop menu
     [Tags]    UI
     Start Application
-    Check pop-up          ${Popup_title}
-    Close pop-up          ${Popup_title}
+    Hendle Recommanded product popup
     Click login
     Fill up form Login    ${Mobile_login}    ${Password_login}
     Click button type     ${Btn_login}   

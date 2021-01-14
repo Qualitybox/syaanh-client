@@ -3,6 +3,7 @@ Library                      SeleniumLibrary
 Library                      Collections
 Library                      OperatingSystem
 Variables                    ${EXECDIR}/GlobalProperties.py
+Variables                    Webelements/Common.py
 
 *** Keywords ***
 
@@ -15,9 +16,10 @@ Teardown tests
     Capture Page Screenshot
     Close All Browsers
 
-Check pop-up
-    [Arguments]    ${title}
-    Element Should Be Visible    //div[@class="modal-header"]//h3[contains(text(), "${title}")]    
+Hendle Recommanded product popup
+    Wait Until Element Is Visible             ${recommandedProductPopup}
+    Click Element                                ${recommandedProductPopup_close}
+    Wait Until Element Is Not Visible     ${recommandedProductPopup}
 
 Check pop-up not visible
     [Arguments]    ${title}
