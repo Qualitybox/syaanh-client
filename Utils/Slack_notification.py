@@ -1,7 +1,6 @@
 import requests
 
-CI_Slack_webhook = 'https://hooks.slack.com/services/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'
-
+CI_Slack_webhook = 'https://hooks.slack.com/services/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'
 
 def publish_results_to_slack(global_result='1', message='default', jobID='481857404', browser='chrome', scope='ci'):
     # get only last line of gloabal suite message
@@ -57,4 +56,5 @@ def publish_results_to_slack(global_result='1', message='default', jobID='481857
     print(response.content)
     return response.status_code
 
-publish_results_to_slack()
+#publish_results_to_slack()
+
