@@ -15,4 +15,3 @@ Register
     Fill register input    Password     ${Password}     ${Password_id}
     Click button type     ${Btn_Register}   
     Close confirmation pop-up register    ${Msg_Confirmation_register}
-    [Teardown]    Teardown tests
