@@ -51,7 +51,7 @@ jobs:
           refError=0
           SCOPE="ci"
           echo $GITHUB_RUN_ID
-          robot -x xUnit -T -d Reports/ -i UI -v Browser:headlesschrome . || refError=$?
+          robot -x xUnit -T -d Reports/ -i UI -v Browser:headlesschrome --norpa . || refError=$?
           robot -v Build_nbr:$GITHUB_RUN_ID -v JOB_STATUS:$refError -d Reports/Notifs -v SCOPE:$SCOPE --rpa notifications.robot
 
       - name: Archive test results
