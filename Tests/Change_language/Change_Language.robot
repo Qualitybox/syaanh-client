@@ -4,7 +4,7 @@ Variables   Data.yaml
 
 *** Test Cases ***
 Change language
-    [Tags]    UI    wip
+    [Tags]    UI    wip    sya
     Start Application
     Hendle Recommanded product popup
     Click login
