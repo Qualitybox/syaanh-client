@@ -3,7 +3,7 @@ Resource    ${EXECDIR}/PageObjects/Common.robot
 Variables   Data.yaml
 
 *** Test Cases ***
-Login
+C18_User can login with correct username and password
     [Tags]    UI
     Start Application
     Hendle Recommanded product popup
@@ -12,7 +12,7 @@ Login
     Click button type     ${Btn_login}   
     Check pop-up not visible   ${Popup_login}
     
-Login_incorrect
+C15_User cannot login with incorrect username and password
     [Tags]    UI
     Start Application
     Hendle Recommanded product popup
