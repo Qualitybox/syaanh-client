@@ -4,7 +4,7 @@ Variables   Data.yaml
 
 *** Test Cases ***
 My cart
-    [Tags]    UI
+    [Tags]    UI   sya
     Start Application
     Hendle Recommanded product popup
     Click login
