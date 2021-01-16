@@ -23,7 +23,8 @@ Hendle Recommanded product popup
 
 Check pop-up not visible
     [Arguments]    ${title}
-    Wait Until Element Is Not Visible    //div[@class="modal-header"]//h3[contains(text(), "${title}")] 
+    Wait Until Element Is Not Visible    //div[@class="modal-header"]//h3[contains(text(), "${title}")]     timeout= 60
+    Wait Until Element Is Not Visible    //div[@class="modal-header"]//h3[contains(text(), "${title}")]     timeout= 60
 
 Check error message
     [Arguments]    ${msg}
@@ -127,9 +128,9 @@ Open notification
     
 Change language
     [Arguments]    ${language}
-    Wait Until Element Is Visible    //*[@id="navbar_language_dropdown"]    timeout=40
-    #Click Element                    //a[@id="for_lang_drop"][@role="button"]
-    Click Element                    //*[@id="navbar_language_dropdown"]
+    Wait Until Element Is Visible    //*[@id="navbar_language_dropdown"]    timeout= 60
+    Wait Until Element Is Visible    //div[@class="topnav-left"]//..//div//a[contains(text(),"Eng")]//span
+    Click Element                    //div[@class="topnav-left"]//..//div//a[contains(text(),"Eng")]//span
     Wait Until Element Is Visible    //div[@id="nav_lang_link"]
     Click Element                    //div[@id="nav_lang_link"]//a[contains(text(),"${language}")]
     Wait Until Element Is Visible    //a[@id="for_lang_drop"][contains(text(),"${language}")]
@@ -149,7 +150,7 @@ Purchase from Shop menu
     ${category} =    Set Variable       //*[@id="main_content"]//div[@class="shop-categories_inner"]//h6[contains(text(),"${shop_category}")]/..
     ${product} =     Set Variable       //div//h5[contains(text(),"${product_name}")]
     Wait Until Element Is Visible       //h3[contains(text(),"Shop categories")]
-    Wait Until Element Is Visible       ${category}
+    Wait Until Element Is Visible       ${category}    timeout=60
     Click Element   	                ${category}
     Wait Until Element Is Visible       //div[@class="main-container-two"]//h1[contains(text(),"${shop_category}")]
     Scroll Element Into View            ${product}
@@ -162,11 +163,12 @@ Purchase from Shop menu
 Purchase from Shop groups
     [Arguments]     ${groups}    ${product}
     ${category_groups} =     Set Variable     //div//h3[contains(text(),"${groups}")]  
-    ${product_groups} =      Set Variable     //div//h6[contains(text(),"${product}")]
+    ${product_groups} =      Set Variable     //div//a//div//h6[contains(text(),"${product}")]
     #Scroll Element Into View         //*[@id="main_content"]/div[3]/div[5]/div/div/h3
-    #Scroll Element Into View         ${product_groups}
     Etap_Scroll dans la page
-    Wait Until Element Is Visible    ${product_groups}
+    Scroll Element Into View         ${product_groups}
+    Wait Until Element Is Visible    ${category_groups}    timeout=60
+    Wait Until Element Is Visible    ${product_groups}    timeout=60
     Click Element                    ${product_groups}
     Wait Until Element Is Visible       //h1[contains(text(),"Product details ")]
     Clic Add to cart
@@ -175,7 +177,8 @@ Purchase from Shop groups
 Clic See More categories
     ${see more} =    Set Variable    //div//h3[contains(text(),"Shop categories")]/..//a[contains(text(),"see more")]
     Wait Until Element Is Visible    ${see more}           timeout= 30 
-    Click Element                    //*[@id="main_content"]/div[1]/div[1]/a
+    Wait Until Element Is Visible    //main//div//h3[contains(text(),"Shop categories")]//..//a[contains(text(),"see more")]     timeout= 30 
+    Click Element                    //main//div//h3[contains(text(),"Shop categories")]//..//a[contains(text(),"see more")]
     Wait Until Element Is Visible    //div[@class="main-container-two"]//h1[contains(text(),"Recently Added Categories ")]    timeout=30
    
 Etap_Scroll dans la page
