@@ -94,7 +94,9 @@ Click login
 Fill up input form
     [Arguments]                              ${Fill_Data}
     FOR                                      ${element}                                  IN                                  @{Fill_Data}
-    \                                        Fill input field           ${element}        ${Fill_Data}[${element}]
+                                             Fill input field           ${element}        ${Fill_Data}[${element}]
+    END
+
 Fill input field
     [Arguments]                              ${Champs}                                   ${Valeur}
     ${CheminChamp}=                          Set Variable                                //label[contains(text(),"${Champs}")]//..//input
