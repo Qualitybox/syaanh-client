@@ -48,12 +48,21 @@ jobs:
 
       - name: Run tests
         run: |
-          refError=0
+          returnCode=0
           SCOPE="ci"
+          REPORT_FOLDER="Reports"
           echo $GITHUB_RUN_ID
-          robot -x xUnit -d Reports/ -i UI -v Browser:headlesschrome --norpa . || refError=$?
-          robot -v Build_nbr:$GITHUB_RUN_ID -v JOB_STATUS:$refError -d Reports/Notifs -v SCOPE:$SCOPE --rpa notifications.robot
-          exit $refError
+          options=" -x xUnit -d $REPORT_FOLDER -i UI -v Browser:headlesschrome --norpa --suitestatlevel 2 --xunitskipnoncritical"
+          robot $options -v rerun:0 -o output1.xml Tests/ || returnCode=$?
+          echo "------------- $returnCode"
+          if [  $returnCode -ne 0  ]; then robot $options --runemptysuite -v rerun:1 -R $REPORT_FOLDER/output1.xml -o output2.xml Tests/ || returnCode=$?; fi
+          echo "------------- $returnCode"
+          if [  $returnCode -ne 0  ]; then robot $options --runemptysuite -v rerun:2 -R $REPORT_FOLDER/output2.xml -o output3.xml Tests/ || returnCode=$?; fi
+          if [  -f $REPORT_FOLDER/output2.xml  ]; then rebot --suitestatlevel 2 --ProcessEmptySuite -x xUnit --xunitskipnoncritical --merge $REPORT_FOLDER/output*.xml || returnCode=$?; fi
+          echo "------------- $returnCode"
+          pwd && ls
+          robot -v Build_nbr:$GITHUB_RUN_ID -v JOB_STATUS:$returnCode -d Reports/Notifs -v SCOPE:$SCOPE --rpa notifications.robot
+          exit $returnCode
 
       - name: Archive test results
         if: ${{ always() }}
