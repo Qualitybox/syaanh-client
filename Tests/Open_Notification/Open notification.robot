@@ -6,5 +6,5 @@ Variables   Data.yaml
 Open notification
     [Tags]    UI
     Launch Syaanh website
-    Fill up form Login    ${Mobile_login}    ${Password_login}
+    Login user                ${Mobile_login}    ${Password_login}
     Open notification
