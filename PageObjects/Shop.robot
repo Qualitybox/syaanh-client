@@ -5,13 +5,12 @@ Variables    Webelements/Shop.py
 *** Keywords ***
 
 Purchase from Shop groups
-    [Arguments]     ${groups}    ${product}
-    ${category_groups} =     Replace    ${category_groups}         ${groups}
-    ${product_groups} =      Replace    ${product_groups}          ${product}
-    Scroll Element Into View         ${category_groups}
-    Scroll Element Into View         ${product_groups}
-    Wait Until Element Is Visible    ${product_groups}
-    Click Element                    ${product_groups}
+    [Arguments]     ${groups}    ${product}=${None}
+    ${shopFirstElement} =     Replace    ${shopFirstElement}         ${groups}
+    #${product_groups} =      Replace    ${product_groups}          ${product}
+    Scroll Element Into View         ${shopFirstElement}
+    Wait Until Element Is Visible    ${shopFirstElement}
+    Click Element                    ${shopFirstElement}
     Wait Until Element Is Visible       //h1[contains(text(),"Product details")]
     Click Add to cart
     Wait Until Element Is Visible       //div[@class="item-basket"]//p[contains(text(),"Added to basket")]

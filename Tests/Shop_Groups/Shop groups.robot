@@ -8,4 +8,4 @@ Shop groups
     [Tags]    UI
     Launch Syaanh website
     Login user                   ${Mobile_login}    ${Password_login}
-    Purchase from Shop groups    ${Category}        ${Product}
+    Purchase from Shop groups    ${Category}
