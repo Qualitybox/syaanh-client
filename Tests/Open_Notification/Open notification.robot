@@ -1,14 +1,10 @@
 *** Settings ***
-Resource    ${EXECDIR}/PageObjects/Order.robot
+Resource    ${EXECDIR}/PageObjects/Home.robot
 Variables   Data.yaml
 
 *** Test Cases ***
 Open notification
     [Tags]    UI
-    Start Application
-    Hendle Recommanded product popup
-    Click login
+    Launch Syaanh website
     Fill up form Login    ${Mobile_login}    ${Password_login}
-    Click button type     ${Btn_login}   
-    Check pop-up not visible   ${Popup_login}
     Open notification

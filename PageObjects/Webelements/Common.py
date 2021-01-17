@@ -1,3 +1,5 @@
 ProductPopup =                      '//*[@id="syaanh-store_modal"]'
 recommandedProductPopup =           ProductPopup + '//*[@class="modal-content"]'
 recommandedProductPopup_close =     ProductPopup + '//*[contains(@class,"close")]'
+cmn_btn_myCart =                    '//a[@class="basket-link"]'
+cmn_txt_myCartTitle =               '//*[contains(@class,"shop-categories__title")]'

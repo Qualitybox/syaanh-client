@@ -1,12 +1,11 @@
 *** Settings ***
-Resource    ${EXECDIR}/PageObjects/Order.robot
+Resource    ${EXECDIR}/PageObjects/Home.robot
 Variables   Data.yaml
 
 *** Test Cases ***
 Register
     [Tags]    UI
-    Start Application
-    Hendle Recommanded product popup
+    Launch Syaanh website
     Click login
     Click register link
     Fill up input form    ${FormRegister}
@@ -15,3 +14,4 @@ Register
     Fill register input    Password     ${Password}     ${Password_id}
     Click button type     ${Btn_Register}   
     Close confirmation pop-up register    ${Msg_Confirmation_register}
+
