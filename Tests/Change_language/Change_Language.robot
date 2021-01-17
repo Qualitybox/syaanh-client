@@ -7,6 +7,5 @@ Variables   Data.yaml
 Change language
     [Tags]    UI
     Launch Syaanh website
-    Click login
     login user    ${Mobile_login}    ${Password_login}
     Change language            ${Arabic}
