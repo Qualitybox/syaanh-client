@@ -1,6 +1,6 @@
 *** Settings ***
 Resource    ${EXECDIR}/PageObjects/Home.robot
-Resource    ${EXECDIR}/PageObjects/Order.robot
+Resource    ${EXECDIR}/PageObjects/Shop.robot
 Variables   Data.yaml
 
 *** Test Cases ***

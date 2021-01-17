@@ -7,7 +7,7 @@ Test Teardown    Close All Browsers
 *** Test Cases ***
 
 C20_User can delete a product from cart
-    [Tags]    UI    wip
+    [Tags]    UI    skip
     Launch Syaanh website
     Login user                   ${Mobile_login}    ${Password_login}
     Go to my cart
