@@ -7,7 +7,6 @@ Variables   Data.yaml
 Create Order
     [Tags]    UI
     Launch Syaanh website
-    Click login
     Login user    ${Mobile_login}    ${Password_login}
     Click service             ${Service_cleaning}
     Select an area            ${Area}
