@@ -1,14 +1,11 @@
 *** Settings ***
-Resource    ${EXECDIR}/PageObjects/Order.robot
+Resource    ${EXECDIR}/PageObjects/Home.robot
+Resource    ${EXECDIR}/PageObjects/Shop.robot
 Variables   Data.yaml
 
 *** Test Cases ***
 Shop menu
     [Tags]    UI
-    Start Application
-    Hendle Recommanded product popup
-    Click login
-    Fill up form Login    ${Mobile_login}    ${Password_login}
-    Click button type     ${Btn_login}   
-    Check pop-up not visible   ${Popup_login}
-    Purchase from Shop menu    ${Category}    ${Product}
+    Launch Syaanh website
+    Login user                 ${Mobile_login}    ${Password_login}
+    Purchase from Shop menu    ${Category}

@@ -1,4 +1,4 @@
 *** Settings ***
-Resource                      ../PageObjects/Common.robot
+Resource                      ${EXECDIR}/PageObjects/Common.robot
 Force Tags                    UI
 Test Teardown                 Teardown tests
