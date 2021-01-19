@@ -130,8 +130,3 @@ Change language
     Click Element                    //div[@id="nav_lang_link"]//a[contains(text(),"${language}")]
     Wait Until Element Is Visible    //a[@id="for_lang_drop"][contains(text(),"${language}")]
 
-Go to my cart
-    Wait Until Element Is Visible       ${cmn_btn_myCart}
-    Click Element   	                ${cmn_btn_myCart}
-    Wait Until Element Is Visible       ${cmn_txt_myCartTitle}
-
