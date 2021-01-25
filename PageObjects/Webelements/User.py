@@ -1,5 +1,5 @@
 usr_btn_user_option =           "//div//a[@id='user_options']"
-usr_btn_my_profile =            "//div[@class='dropdown-menu user-options show']//a[@href='https://dev.syaanh.com/en/profile']"
+usr_btn_my_profile =            "//div[@class='dropdown-menu user-options show']//a[contains(text(),'My profile')]"
 usr_txt_user_name =             "//div[@class='profile-username']//h1"
 usr_btn_edit_name =             "//div[@class='profile-edit-pencil']//a[@class='btn']"
 usr_popup_update_name =         "//div[@class='modal-content']//div[@class='modal-body']//div[@class='profile-update-header']"

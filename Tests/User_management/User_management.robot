@@ -2,7 +2,7 @@
 Resource    ${EXECDIR}/PageObjects/Order.robot
 Resource    ${EXECDIR}/PageObjects/Home.robot
 Resource    ${EXECDIR}/PageObjects/User.robot
-Variables   Data.yaml
+Variables   Data.py
 
 *** Test Cases ***
 C4_Change language
@@ -16,5 +16,5 @@ C3_Edit Profile
     Launch Syaanh website
     login user    ${Mobile_login}    ${Password_login}
     Go to my profile
-    Change user name    ${Name}
+    Change user photo and name     ${Name}      ${CURDIR}${/}test.png
     Change user password    ${Password_login}

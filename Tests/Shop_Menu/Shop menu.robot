@@ -1,7 +1,7 @@
 *** Settings ***
 Resource    ${EXECDIR}/PageObjects/Home.robot
 Resource    ${EXECDIR}/PageObjects/Shop.robot
-Variables   Data.yaml
+Variables   Data.py
 
 *** Test Cases ***
 Shop menu

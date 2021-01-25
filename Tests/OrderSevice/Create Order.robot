@@ -1,7 +1,7 @@
 *** Settings ***
 Resource    ${EXECDIR}/PageObjects/Order.robot
 Resource    ${EXECDIR}/PageObjects/Home.robot
-Variables   Data.yaml
+Variables   Data.py
 
 *** Test Cases ***
 C6_Create Order

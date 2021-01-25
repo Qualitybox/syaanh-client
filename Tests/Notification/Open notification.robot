@@ -1,6 +1,6 @@
 *** Settings ***
 Resource    ${EXECDIR}/PageObjects/Home.robot
-Variables   Data.yaml
+Variables   Data.py
 
 *** Test Cases ***
 Open notification
