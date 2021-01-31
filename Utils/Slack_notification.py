@@ -1,8 +1,8 @@
 import requests
 
-CI_Slack_webhook = 'https://hooks.slack.com/services/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'
+#CI_Slack_webhook = 'https://hooks.slack.com/services/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'
 
-def publish_results_to_slack(global_result='1', message='default', jobID='481857404', browser='chrome', scope='ci'):
+def publish_results_to_slack(channel, global_result='1', message='default', jobID='481857404', browser='chrome', scope='ci'):
     # get only last line of gloabal suite message
     # messageLine = message.split('\n')
     # message = messageLine[len(messageLine) - 1]
@@ -12,7 +12,7 @@ def publish_results_to_slack(global_result='1', message='default', jobID='481857
 
     test_nature = 'Tests on *' + browser + '*'
 
-    url = CI_Slack_webhook
+    url = channel
     #artifacts_path = 'https://gitlab.insideboard.com/qa/qa-' + project + '/-/jobs/' + jobID + '/artifacts/download'
 
     if str(global_result) == '0':
