@@ -28,19 +28,14 @@ Handle Recommanded product popup
 
 Check error message
     [Arguments]    ${msg}
-    Wait Until Element Is Visible    //span//strong[contains(text(),"${msg}")]
+    ${error_msg} =              Replace    ${error_msg}    ${msg}
+    Wait Until Element Is Visible      ${error_msg}
 
 Close pop-up
     [Arguments]    ${title}
     Element Should Be Visible    //div//h3[contains(text(), "${title}")]
     Click Element                //div//h3[contains(text(), "${title}")]//..//button
     Wait Until Element Is Not Visible   //div//h3[contains(text(), "${title}")]
-
-Fill up form Login
-    [Arguments]    ${mobile}    ${password}
-    Wait Until Element Is Visible    //div[contains(text(), "Login")]
-    Input Text    //input[@id="mobile_or_email"]    ${mobile}
-    Input Text    //input[@id="login_password"]    ${password}
 
 Click service
     [Arguments]    ${service}
@@ -134,9 +129,4 @@ Change language
     Wait Until Element Is Visible    //div[@id="nav_lang_link"]
     Click Element                    //div[@id="nav_lang_link"]//a[contains(text(),"${language}")]
     Wait Until Element Is Visible    //a[@id="for_lang_drop"][contains(text(),"${language}")]
-
-Go to my cart
-    Wait Until Element Is Visible       ${cmn_btn_myCart}
-    Click Element   	                ${cmn_btn_myCart}
-    Wait Until Element Is Visible       ${cmn_txt_myCartTitle}
 

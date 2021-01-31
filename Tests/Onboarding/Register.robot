@@ -1,6 +1,6 @@
 *** Settings ***
 Resource    ${EXECDIR}/PageObjects/Home.robot
-Variables   Data.yaml
+Variables   Register.yaml
 
 *** Test Cases ***
 Register
