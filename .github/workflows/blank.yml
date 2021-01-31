@@ -54,7 +54,7 @@ jobs:
           mydir=$PWD
           echo $GITHUB_RUN_ID
           secrets="-v MOBILE_LOGIN:${{ secrets.MOBILE_LOGIN }} -v PASSWORD_LOGIN:${{ secrets.PASSWORD_LOGIN }} -v SLACK_WEBHOOK:${{ secrets.SLACK_WEBHOOK }}"
-          options=" -x xUnit -d $REPORT_FOLDER -i UI -v Browser:headlesschrome $secrets --norpa --suitestatlevel 2 --xunitskipnoncritical"
+          options=" -x xUnit -d $REPORT_FOLDER -i $SCOPE -v Browser:headlesschrome $secrets --norpa --suitestatlevel 2 --xunitskipnoncritical"
           robot $options -v rerun:0 -n skip -o output1.xml Tests/ || returnCode=$?
           echo "------------- $returnCode"
           if [  $returnCode -ne 0  ]; then returnCode=0 && robot $options --runemptysuite -v rerun:1 -e skip -R $REPORT_FOLDER/output1.xml -o output2.xml Tests/ || returnCode=$?; fi
