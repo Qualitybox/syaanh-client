@@ -4,7 +4,7 @@ Variables   Data.yaml
 
 *** Test Cases ***
 Open notification
-    [Tags]    UI
+    [Tags]    UI    ci
     Launch Syaanh website
     Login user                ${Mobile_login}    ${Password_login}
     Open notification

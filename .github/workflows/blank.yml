@@ -9,8 +9,6 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
-  schedule:
-   - cron: "0 3 * * 1-5"
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -53,7 +51,8 @@ jobs:
           REPORT_FOLDER="Reports"
           mydir=$PWD
           echo $GITHUB_RUN_ID
-          options=" -x xUnit -d $REPORT_FOLDER -i UI -v Browser:headlesschrome --norpa --suitestatlevel 2 --xunitskipnoncritical"
+          secrets="-v MOBILE_LOGIN:${{ secrets.MOBILE_LOGIN }} -v PASSWORD_LOGIN:${{ secrets.PASSWORD_LOGIN }} -v SLACK_WEBHOOK:${{ secrets.SLACK_WEBHOOK }}"
+          options=" -x xUnit -d $REPORT_FOLDER -i $SCOPE -v Browser:headlesschrome $secrets --norpa --suitestatlevel 2 --xunitskipnoncritical"
           robot $options -v rerun:0 -n skip -o output1.xml Tests/ || returnCode=$?
           echo "------------- $returnCode"
           if [  $returnCode -ne 0  ]; then returnCode=0 && robot $options --runemptysuite -v rerun:1 -e skip -R $REPORT_FOLDER/output1.xml -o output2.xml Tests/ || returnCode=$?; fi
@@ -61,7 +60,7 @@ jobs:
           if [  $returnCode -ne 0  ]; then returnCode=0 && robot $options --runemptysuite -v rerun:2 -e skip -R $REPORT_FOLDER/output2.xml -o output3.xml Tests/ || returnCode=$?; fi
           if [  -f $REPORT_FOLDER/output2.xml  ]; then cd $REPORT_FOLDER && rebot --suitestatlevel 2 --ProcessEmptySuite -x xUnit -n skip --xunitskipnoncritical --merge output*.xml || returnCode=$?; fi
           echo "------------- $returnCode"
-          cd $mydir && robot -v Build_nbr:$GITHUB_RUN_ID -v JOB_STATUS:$returnCode -d Reports/Notifs -v SCOPE:$SCOPE --rpa notifications.robot
+          cd $mydir && robot -v Build_nbr:$GITHUB_RUN_ID -v JOB_STATUS:$returnCode -d Reports/Notifs -v SCOPE:$SCOPE $secrets --rpa notifications.robot
           exit $returnCode
 
       - name: Archive test results

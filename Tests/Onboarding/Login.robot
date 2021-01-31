@@ -5,7 +5,7 @@ Variables   Data.py
 
 *** Test Cases ***
 C18_User can login with correct username and password
-    [Tags]    UI
+    [Tags]    UI    ci
     Launch Syaanh website
     Login user            ${Mobile_login}            ${Password_login}
 
