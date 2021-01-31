@@ -5,7 +5,7 @@ Variables   Data.yaml
 
 *** Test Cases ***
 See more
-    [Tags]    UI    skip
+    [Tags]    UI    ci
     Launch Syaanh website
     Login user    ${Mobile_login}    ${Password_login}
     Clic See More categories
