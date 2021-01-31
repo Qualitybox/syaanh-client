@@ -4,7 +4,7 @@ Resource    ${EXECDIR}/PageObjects/Home.robot
 Variables   Data.yaml
 
 *** Test Cases ***
-Create Order
+C6_Create Order
     [Tags]    UI
     Launch Syaanh website
     Login user    ${Mobile_login}    ${Password_login}

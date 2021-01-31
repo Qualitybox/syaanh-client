@@ -14,3 +14,9 @@ Login user
     Fill up form Login                  ${username}        ${Password}
     Click Element                       ${Button_login}
     Wait Until Element Is Not Visible   ${Popup_login}
+
+Fill up form Login
+    [Arguments]    ${mobile}    ${password}
+    Wait Until Element Is Visible      ${Popup_login}
+    Input Text    ${input_mobile}      ${mobile}
+    Input Text    ${input_password}    ${password}

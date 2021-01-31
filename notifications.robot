@@ -1,4 +1,5 @@
 *** Settings ***
+#Variables    secrets.yaml
 Resource                       PageObjects/Common.robot
 Library                        Utils/Slack_notification.py
 Library                        XML
@@ -16,7 +17,7 @@ Push_Notifications
     # ${testrun_id} =                         Run Keyword If                 ${RunByCI}                     TestRail_Notifications
     # ...                                     ELSE                           Set Variable                   local
     ${Build_nbr} =                            Get Variable Value             ${Build_nbr}                   local
-    Publish Results To Slack                  ${JOB_STATUS}                  ${SUITE_MESSAGE}
+    Publish Results To Slack                  ${SLACK_WEBHOOK}               ${JOB_STATUS}                  ${SUITE_MESSAGE}
     ...                                       ${Build_nbr}                   ${Browser}                     ${SCOPE}
 
 *** Keywords ***

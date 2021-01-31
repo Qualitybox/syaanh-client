@@ -73,8 +73,8 @@ Check pop-up success create order
     Wait Until Element Is Visible    ${pop-up}
 
 Go to my orders
-    ${link} =    Set Variable    //a[contains(text(),"My orders")][@class="orderPosition"]
+    ${link} =    Set Variable        //a[contains(text(),"My orders")][@class="orderPosition"]
     Wait Until Element Is Visible    ${link}
-    Click Element    ${link}
+    Click Element                    ${link}
     Wait Until Element Is Visible    //div//span[contains(text(),"My orders")]
 
