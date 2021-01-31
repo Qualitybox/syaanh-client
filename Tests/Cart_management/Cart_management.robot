@@ -7,7 +7,7 @@ Test Teardown    Close All Browsers
 *** Test Cases ***
 
 My cart
-    [Tags]    UI    ci
+    [Tags]    UI
     Launch Syaanh website
     Login user    ${Mobile_login}    ${Password_login}
     Go to my cart
