@@ -19,7 +19,6 @@ Push_Notifications
     ${Build_nbr} =                            Get Variable Value             ${Build_nbr}                   local
     Publish Results To Slack                  ${SLACK_WEBHOOK}               ${JOB_STATUS}                  ${SUITE_MESSAGE}
     ...                                       ${Build_nbr}                   ${Browser}                     ${SCOPE}
-
 *** Keywords ***
 
 Get test results from xUnit
