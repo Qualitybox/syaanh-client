@@ -41,4 +41,11 @@ C13_User cannot login with empty password
      Fill up form Login    ${Mobile_login }    ${EMPTY}
     Click button type     ${Btn_login}
     Check error message   ${msg_password_empty}
+C14_User cannot login with invalid username
+    Launch Syaanh website
+    Click login
+    Click button type     ${Btn_login}
+     Fill up form Login    ${Mobile_inv}   ${Password}
+    Click button type     ${Btn_login}
+    Check error message    ${msg_username_invalid} 
 
