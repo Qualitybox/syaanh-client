@@ -121,7 +121,9 @@ Open notification
     Wait Until Element Is Visible      ${notification_icone}
     Click Element                      ${notification_icone}
     Wait Until Element Is Visible      //div[@class="dropdown-menu dropdown-notification show"]
-
+Verify notification not existe 
+    ${notification_icone} =    Set Variable        //a[@id="notifications"]
+    Wait Until Page Does Not Contain    text${notification_icone}    
 Change language
     [Arguments]    ${language}
     Wait Until Element Is Visible    //a[@id="for_lang_drop"]
